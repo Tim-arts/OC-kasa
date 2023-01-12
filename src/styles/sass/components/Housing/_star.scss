@@ -1,0 +1,24 @@
+@use '../../utils/variables' as *;
+@use '../../utils/mixins' as *;
+
+.star {
+  display: flex;
+  align-items: center;
+  height: $height_star;
+  width: $width_star;
+  font-size: 44px;
+  color: #e3e3e3;
+  margin-right: 4px;
+}
+.active-star {
+  color: $orange;
+}
+
+@include mobile {
+  .star {
+    height: $height_star_mobile;
+    width: $width_star_mobile;
+    font-size: 22px;
+    margin-right: 2px;
+  }
+}

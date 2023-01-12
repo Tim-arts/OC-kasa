@@ -1,0 +1,36 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.collapse {
+  &__title_chevron {
+    @include flex_space_between;
+    align-items: center;
+    background-color: $orange;
+    color: $white;
+    height: 47px;
+    border-radius: 5px;
+    padding: 0 30px 0 18px;
+    cursor: pointer;
+  }
+  &__chevron {
+    border-left: $border_chevron solid $white;
+    border-bottom: $border_chevron solid $white;
+    width: $size_chevron;
+    height: $size_chevron;
+    margin-top: 7px;
+    transform: rotate(135deg);
+    &.open {
+      margin-bottom: 12px;
+      transform: rotate(314deg);
+    }
+  }
+}
+
+@include mobile {
+  .collapse {
+    &__title_chevron {
+      height: 30px;
+      padding: 0 10px 0 12px;
+    }
+  }
+}

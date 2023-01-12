@@ -1,0 +1,60 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 223px;
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+  &__image-Home {
+    @include image-responsive;
+    filter: brightness(60%);
+    position: relative;
+    top: 75px;
+  }
+  &__text-Home {
+    position: absolute;
+    z-index: 1;
+  }
+  &__image-About {
+    @include image-responsive;
+    filter: brightness(80%);
+    position: relative;
+    top: 40px;
+  }
+  &.banner-home {
+    margin-top: 63px;
+  }
+  &.banner-about {
+    margin-top: 44px;
+  }
+}
+
+@include mobile {
+  .banner {
+    justify-content: left;
+    &__image-Home {
+      top: 0;
+    }
+    &__text-Home {
+      width: 217px;
+      height: 48px;
+      margin-left: 16px;
+    }
+    &__image-About {
+      top: 0;
+    }
+    border-radius: 10px;
+    &.banner-home {
+      height: 111px;
+      margin-top: 16px;
+    }
+    &.banner-about {
+      height: 223px;
+      margin-top: 17px;
+    }
+  }
+}

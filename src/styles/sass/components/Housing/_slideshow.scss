@@ -1,0 +1,82 @@
+@use '../../utils/variables' as *;
+@use '../../utils/mixins' as *;
+
+.carousel {
+  height: 415px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 25px;
+  &__item {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__container {
+    &-image {
+      width: 100%;
+      animation: imageEffect 0.8s forwards;
+    }
+    &-text {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  &__arrows {
+    font-size: 70px;
+    color: $white;
+    top: 50%;
+    transform: translateY(-50%);
+    user-select: none;
+    cursor: pointer;
+    &.arrow-left {
+      position: absolute;
+      left: 0;
+      padding-left: 23px;
+    }
+    &.arrow-right {
+      position: absolute;
+      right: 0;
+      padding-right: 23px;
+    }
+  }
+}
+
+@keyframes imageEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@include tablet {
+  .carousel {
+    height: 340px;
+  }
+}
+
+@include mobile {
+  .carousel {
+    height: 224px;
+    border-radius: 10px;
+    &__arrows {
+      font-size: 26px;
+    }
+    & .arrow-left {
+      padding-left: 5px;
+    }
+    & .arrow-right {
+      padding-right: 5px;
+    }
+    &__container {
+      &-image {
+        min-height: 224px;
+        object-fit: cover;
+      }
+    }
+  }
+}

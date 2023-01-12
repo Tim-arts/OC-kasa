@@ -1,0 +1,47 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.about {
+  margin: 31px 209px 200px 208px;
+}
+
+.collapse-About {
+  margin-bottom: 33px;
+}
+.collapse {
+  &__container-About {
+    border-radius: 5px;
+    & .open {
+      background-color: $grey;
+    }
+    & .closed {
+      display: none;
+    }
+    &--text {
+      padding: 25px 27px 19px 18px;
+    }
+  }
+}
+
+@include tablet {
+  .about {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
+
+@include mobile {
+  .about {
+    margin: 19px $margin_mobile 168px $margin_mobile;
+    .collapse-About {
+      margin-bottom: $margin_mobile;
+    }
+  }
+  .collapse {
+    &__container-About {
+      &--text {
+        padding: 17px 6px 50px 12px;
+      }
+    }
+  }
+}

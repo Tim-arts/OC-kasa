@@ -1,0 +1,29 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+*,
+:before,
+:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.section__margin {
+  margin-left: $margin_page;
+  margin-right: $margin_page;
+}
+
+@include tablet {
+  .section__margin {
+    margin-left: $margin_tablet;
+    margin-right: $margin_tablet;
+  }
+}
+
+@include mobile {
+  .section__margin {
+    margin-left: $margin_mobile;
+    margin-right: $margin_mobile;
+  }
+}

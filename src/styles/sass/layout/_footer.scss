@@ -1,0 +1,30 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: $black;
+  color: $white;
+  height: 209px;
+  & img {
+    width: 122px;
+    height: 39px;
+    object-fit: cover;
+  }
+  & p {
+    position: relative;
+    top: 45px;
+  }
+}
+
+@include mobile {
+  footer {
+    padding-bottom: 30px;
+    & p {
+      top: 26px;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@use '../../utils/variables' as *;
+
+.tag {
+  display: flex;
+  align-items: center;
+  height: 25px;
+  border-radius: 10px;
+  background-color: $orange;
+  padding: 12px 15px 12px 15px;
+  margin-right: 10px;
+}

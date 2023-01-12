@@ -1,0 +1,153 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.housing {
+  margin: 20px 0 15px 0;
+  &__datas {
+    @include flex_space_between;
+    margin-top: 24px;
+  }
+  &__data-1 {
+    @include flex_column;
+    margin-bottom: 24px;
+  }
+  &__tags {
+    display: flex;
+    margin-top: 20px;
+  }
+  &__data-2 {
+    @include flex_column;
+  }
+  &__name-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  &__name {
+    width: min-content;
+    margin-right: 10px;
+  }
+  &__avatar {
+    width: $width_avatar;
+    height: $height_avatar;
+    background-color: $grey;
+    border-radius: 32px;
+    position: relative;
+    overflow: hidden;
+    &-image {
+      @include image-responsive;
+    }
+  }
+  &__rating {
+    display: flex;
+    margin-top: 18px;
+    width: 196px;
+    height: 39px;
+  }
+  &__collapse {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 76px;
+    & .collapse__title_chevron-Housing {
+      height: 52px;
+      border-radius: 10px;
+    }
+    & .description {
+      & .open {
+        display: block;
+      }
+    }
+    & .equipments {
+      & .open {
+        display: block;
+      }
+    }
+    .collapse {
+      @include flex_column;
+      &__container-Housing {
+        flex: 1;
+        background-color: $grey;
+        border-radius: 10px;
+        padding: 30px 12px 27px 20px;
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 577px) and (max-width: 1280px) {
+  .housing {
+    &__collapse {
+      margin-top: 20px;
+    }
+    &__rating {
+      margin-top: 38px;
+    }
+  }
+}
+
+@include mobile {
+  h1 {
+    margin: 0;
+  }
+  .housing {
+    margin-top: 27px;
+    margin-bottom: 64px;
+    &__datas {
+      margin-top: 0;
+      flex-direction: column;
+    }
+    &__title-loc {
+      margin-top: 10px;
+      & h1 {
+        margin-bottom: 5px;
+      }
+    }
+    &__tags {
+      margin-top: 5px;
+      flex-wrap: wrap;
+    }
+    & .tag {
+      height: 18px;
+      border-radius: 5px;
+      padding: 2px 30px 1px 29px;
+      margin-top: 10px;
+    }
+    &__data-1 {
+      margin-bottom: 15px;
+    }
+    &__data-2 {
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+    &__avatar {
+      height: $height_avatar_mobile;
+      width: $width_avatar_mobile;
+    }
+    &__rating {
+      display: flex;
+      align-items: center;
+      margin-top: 0;
+    }
+    &__collapse {
+      grid: none;
+      gap: 0;
+      & .collapse__title_chevron-Housing {
+        height: 30px;
+        border-radius: 5px;
+      }
+      & .description {
+        margin-bottom: 20px;
+      }
+      .collapse {
+        border-radius: 5px;
+        &__container-Housing {
+          padding: 18px 6px 4px 11px;
+        }
+      }
+    }
+  }
+}

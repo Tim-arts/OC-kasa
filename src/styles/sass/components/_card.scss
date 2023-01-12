@@ -1,0 +1,63 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.card {
+  height: $height_card;
+  width: $width_card;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 50px 8px 0 50px;
+  &__image {
+    position: relative;
+    & img {
+      height: $height_card;
+      width: $width_card;
+      object-fit: cover;
+    }
+    & span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.75) 0%,
+          rgba(0, 0, 0, 0) 40%
+        );
+      }
+    }
+  }
+  &__title {
+    position: relative;
+    left: 15px;
+    bottom: 65px;
+    padding-right: 18px;
+  }
+}
+
+@media screen and (max-width: 845px) {
+  .card {
+    width: 100%;
+    height: $height_card_mobile;
+    margin: 0;
+    margin-bottom: 20px;
+    &__image {
+      height: $height_card_mobile;
+      width: 100%;
+      & img {
+        width: 100%;
+      }
+    }
+    &__title {
+      bottom: 55px;
+    }
+  }
+}
